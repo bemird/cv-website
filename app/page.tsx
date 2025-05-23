@@ -23,7 +23,7 @@ export default function Home() {
 
         <section>
           <h2 className="text-2xl font-semibold">Contact</h2>
-          <p>📍 Ankara, Turkey</p>
+          <p>📍 Ankara, Turkiye</p>
           <p>📧 boran.demir@hotmail.com</p>
           <p>📞 +90 543 815 4377</p>
           <p>🔗 <a href="https://www.linkedin.com/in/boran-demir" className="text-blue-600">LinkedIn</a></p>
@@ -84,6 +84,9 @@ export default function Home() {
           </ul>
         </section>
       </main>
+        <div className="fixed bottom-4 right-4 text-xs px-4 py-2 bg-gradient-to-r from-sky-500 to-blue-600 text-white rounded-full shadow-lg font-semibold backdrop-blur-sm">
+        This page was developed by me!🙃
+        </div>
     </div>
   );
 }
