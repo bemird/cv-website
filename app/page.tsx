@@ -3,7 +3,7 @@ import Image from "next/image";
 export default function Home() {
   return (
     <div
-      className="min-h-screen bg-cover bg-center"
+      className="min-h-screen flex flex-col bg-cover bg-center bg-fixed"
       style={{ backgroundImage: "url('/background.jpeg')" }}
     >
       <main className="backdrop-blur-sm bg-white/80 dark:bg-black/60 p-6 max-w-3xl mx-auto space-y-8 rounded-xl shadow-lg mt-10">
@@ -79,7 +79,7 @@ export default function Home() {
           <ul className="list-disc list-inside ml-4">
             <li>Linux, Red Hat, Networking (Routing, Switching, Subnetting)</li>
             <li>VMware, KVM, Nagios</li>
-            <li>Python, SQL, Docker, Kubernetes</li>
+            <li>Python, SQL, OracleDB, Docker, Kubernetes</li>
             <li>AWS Lambda, RDS (Cloud-native experience)</li>
           </ul>
         </section>
