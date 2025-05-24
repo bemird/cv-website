@@ -1,0 +1,25 @@
+name: Deploy to EC2
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Deploy via SSH
+        uses: appleboy/ssh-action@v1.0.0
+        with:
+          host: 16.171.41.127
+          username: ubuntu
+          key: ${{ secrets.EC2_SSH_KEY }}
+          script: |
+            cd cv-website
+            git pull origin main
+            docker build -t my-cv-site .
+            docker stop my-cv-site || true
+            docker rm my-cv-site || true
+            docker run -d -p 80:3000 --name my-cv-site my-cv-site
+

@@ -69,7 +69,7 @@ export default function Home() {
           <h2 className="text-2xl font-semibold">Certifications</h2>
           <ul className="list-disc list-inside ml-4">
             <li>Nokia Network Routing Specialist I (NRS I)</li>
-            <li>Nokia IP Fundamentals (4A0-100), OSPF Routing (4A0-113)</li>
+            <li>Nokia IP Fundamentals (4A0-100)</li>
             <li>Nokia OSPF Routing Protocol Exam 4A0-113</li>
           </ul>
         </section>
