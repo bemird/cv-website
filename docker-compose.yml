@@ -1,26 +1,25 @@
-  version: '3.8'
+version: '3.8'
 
-  services:
-    frontend:
-      build:
-        context: .
-      ports:
-        - "3000:3000"
-      depends_on:
-        - backend
-      networks:
-        - cv-network
+services:
+  frontend:
+    build:
+      context: .
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+    networks:
+      - cv-network
 
-    backend:
-      build:
-        context: ./backend
-      ports:
-        - "8000:8000"
-      environment:
-        - SMTP_USER=your_email@example.com
-        - SMTP_PASS=your_email_password
-      networks:
-        - cv-network
+  backend:
+    build:
+      context: ./backend
+    ports:
+      - "8000:8000"
+    env_file:
+      - ./backend/.env
+    networks:
+      - cv-network
 
-  networks:
-    cv-network:
+networks:
+  cv-network:

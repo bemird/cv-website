@@ -18,9 +18,10 @@ export async function POST(req: NextRequest) {
       headers: { "Content-Type": "application/json" },
     });
   } catch (err) {
-    return new Response(JSON.stringify({ error: "Failed to send message." }), {
-      status: 500,
-    });
-  }
+  console.error("Contact API error:", err);
+  return new Response(JSON.stringify({ error: "Failed to send message." }), {
+    status: 500,
+  });
+}
 }
 
