@@ -8,7 +8,7 @@ export default function ContactPage() {
 
   return (
       <main className="min-h-screen flex items-center justify-center bg-cover bg-center pb-4"
-      style={{ backgroundImage: "url('/contactpage.jpeg')" }}
+      style={{ backgroundImage: "url('/contactpage2.jpeg')" }}
       >
       <div className="backdrop-blur-sm bg-white/80 dark:bg-black/60 p-8 rounded-xl shadow-xl w-full max-w-xl space-y-6">
         {!submitted ? (
@@ -21,7 +21,7 @@ export default function ContactPage() {
                 const form = e.target as HTMLFormElement;
                 const formData = new FormData(form);
 
-                fetch("http://localhost:8000/contact", {
+                fetch("http://ec2-16-171-41-127.eu-north-1.compute.amazonaws.com:8000/contact", {
                   method: "POST",
                   body: formData,
                 })
