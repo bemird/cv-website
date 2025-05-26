@@ -21,7 +21,7 @@ export default function ContactPage() {
                 const form = e.target as HTMLFormElement;
                 const formData = new FormData(form);
 
-                fetch("http://ec2-16-171-41-127.eu-north-1.compute.amazonaws.com:8000/contact", {
+                fetch("/api/contact", {
                   method: "POST",
                   body: formData,
                 })
