@@ -6,7 +6,7 @@ export default function Home() {
       className="min-h-screen flex flex-col bg-cover bg-center bg-fixed"
       style={{ backgroundImage: "url('/background.jpeg')" }}
     >
-      <main className="backdrop-blur-sm bg-white/80 dark:bg-black/60 p-6 max-w-3xl mx-auto space-y-8 rounded-xl shadow-lg mt-10">
+      <main className="backdrop-blur-sm bg-white/80 dark:bg-black/60 p-4 max-w-3xl mx-auto space-y-6 rounded-xl shadow-lg mt-10 mb-6 text-left items-start text-start">
         <div className="flex items-center gap-6">
           <Image
             src="/boran.jpg"
@@ -81,12 +81,11 @@ export default function Home() {
             <li>VMware, KVM, Nagios</li>
             <li>Python, SQL, OracleDB, Docker, Kubernetes</li>
             <li>AWS Lambda, RDS (Cloud-native experience)</li>
+
           </ul>
         </section>
+
       </main>
-        <div className="fixed bottom-4 right-4 text-xs px-4 py-2 bg-gradient-to-r from-sky-500 to-blue-600 text-white rounded-full shadow-lg font-semibold backdrop-blur-sm">
-        This page was developed by me!🙃
-        </div>
     </div>
   );
 }
