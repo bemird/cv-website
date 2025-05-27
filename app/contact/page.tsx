@@ -7,9 +7,10 @@ export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
 
   return (
-      <main className="min-h-screen flex items-center justify-center bg-cover bg-center pb-4"
+    <main
+      className="min-h-screen flex items-center justify-center bg-cover bg-center pb-4"
       style={{ backgroundImage: "url('/contactpage2.jpeg')" }}
-      >
+    >
       <div className="backdrop-blur-sm bg-white/80 dark:bg-black/60 p-8 rounded-xl shadow-xl w-full max-w-xl space-y-6">
         {!submitted ? (
           <>
@@ -17,13 +18,20 @@ export default function ContactPage() {
             <form
               onSubmit={(e) => {
                 e.preventDefault();
-
                 const form = e.target as HTMLFormElement;
-                const formData = new FormData(form);
+
+                const payload = {
+                  name: (form.name as HTMLInputElement).value,
+                  email: (form.email as HTMLInputElement).value,
+                  message: (form.message as HTMLTextAreaElement).value,
+                };
 
                 fetch("/api/contact", {
                   method: "POST",
-                  body: formData,
+                  headers: {
+                    "Content-Type": "application/json",
+                  },
+                  body: JSON.stringify(payload),
                 })
                   .then((response) => {
                     if (response.ok) {

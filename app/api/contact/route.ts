@@ -1,14 +1,14 @@
 import { NextRequest } from "next/server";
 
 export async function POST(req: NextRequest) {
-  const formData = await req.formData();
-  const name = formData.get("name")?.toString() || "";
-  const email = formData.get("email")?.toString() || "";
-  const message = formData.get("message")?.toString() || "";
-
   try {
+    const { name, email, message } = await req.json();
+
     const response = await fetch("http://backend:8000/contact", {
       method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
       body: new URLSearchParams({ name, email, message }),
     });
 
@@ -18,10 +18,9 @@ export async function POST(req: NextRequest) {
       headers: { "Content-Type": "application/json" },
     });
   } catch (err) {
-  console.error("Contact API error:", err);
-  return new Response(JSON.stringify({ error: "Failed to send message." }), {
-    status: 500,
-  });
+    console.error("Contact API error:", err);
+    return new Response(JSON.stringify({ success: false, message: "Failed to send message." }), {
+      status: 500,
+    });
+  }
 }
-}
-
