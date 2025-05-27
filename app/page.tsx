@@ -47,12 +47,13 @@ export default function Home() {
             <li>Administered VMware and KVM virtualization</li>
             <li>Monitored servers with Nagios</li>
             <li>Gained skills in Docker & Kubernetes</li>
+            <li>Applied solid networking knowledge including IP addressing, routing, and subnetting</li>
             <li>Held NATO security clearance</li>
             <li>Health and Safety training</li>
           </ul>
           <p className="font-semibold mt-2">METU KOVAN Lab — Research Intern (2019)</p>
           <ul className="list-disc list-inside ml-4">
-            <li>Worked on drone swarm path planning using ROS</li>
+            <li>Worked on swarm drone project shortest distance path planning using ROS</li>
           </ul>
         </section>
 
@@ -69,8 +70,8 @@ export default function Home() {
           <h2 className="text-2xl font-semibold">Certifications</h2>
           <ul className="list-disc list-inside ml-4">
             <li>Nokia Network Routing Specialist I (NRS I)</li>
-            <li>Nokia IP Fundamentals (4A0-100)</li>
-            <li>Nokia OSPF Routing Protocol Exam 4A0-113</li>
+            <li>Nokia IP Networks and Services Fundamentals (4A0-100)</li>
+            <li>Nokia OSPF Routing Protocol Exam (4A0-113)</li>
           </ul>
         </section>
 
@@ -80,7 +81,7 @@ export default function Home() {
             <li>Linux, Red Hat, Networking (Routing, Switching, Subnetting)</li>
             <li>VMware, KVM, Nagios</li>
             <li>Python, SQL, OracleDB, Docker, Kubernetes</li>
-            <li>AWS Lambda, RDS (Cloud-native experience)</li>
+            <li> Amazon Web Services (AWS)</li>
 
           </ul>
         </section>
