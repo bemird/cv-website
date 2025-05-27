@@ -18,12 +18,14 @@ export default function ContactPage() {
             <form
               onSubmit={(e) => {
                 e.preventDefault();
+
                 const form = e.target as HTMLFormElement;
+                const formData = new FormData(form);
 
                 const payload = {
-                  name: (form.name as HTMLInputElement).value,
-                  email: (form.email as HTMLInputElement).value,
-                  message: (form.message as HTMLTextAreaElement).value,
+                  name: formData.get("name")?.toString() || "",
+                  email: formData.get("email")?.toString() || "",
+                  message: formData.get("message")?.toString() || "",
                 };
 
                 fetch("/api/contact", {
@@ -45,6 +47,7 @@ export default function ContactPage() {
                     alert("⚠️ Network error. Please try again.");
                   });
               }}
+
               className="space-y-4"
             >
               <input
