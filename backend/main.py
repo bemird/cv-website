@@ -3,6 +3,8 @@ from fastapi import FastAPI, Form
 from fastapi.middleware.cors import CORSMiddleware
 import smtplib
 from email.message import EmailMessage
+from dotenv import load_dotenv
+load_dotenv(".env")
 
 app = FastAPI()
 
