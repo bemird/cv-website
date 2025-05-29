@@ -2,7 +2,7 @@ name: Deploy to EC2
 
 on:
   push:
-    branches: [main]
+    branches: [feature/docker-k8s-practice]
 
 jobs:
   deploy:
@@ -19,8 +19,10 @@ jobs:
           username: ubuntu
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
-            cd my-cv-site
-            git pull origin main
+            cd ~
+            if [ ! -d "cv-website" ]; then git clone https://github.com/bemird/cv-website.git; fi
+            cd cv-website
+            git pull origin feature/docker-k8s-practice
             docker build -t my-cv-site .
             docker stop my-cv-site || true
             docker rm my-cv-site || true
