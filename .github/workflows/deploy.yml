@@ -22,9 +22,7 @@ jobs:
             cd ~
             if [ ! -d "cv-website" ]; then git clone https://github.com/bemird/cv-website.git; fi
             cd cv-website
-            git pull origin feature/docker-k8s-practice
-            docker build -t my-cv-site .
-            docker stop my-cv-site || true
-            docker rm my-cv-site || true
-            docker run -d -p 80:3000 --name my-cv-site my-cv-site
-
+            git pull origin main
+            docker compose down
+            docker compose build
+            docker compose up -d
