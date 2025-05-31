@@ -1,11 +1,13 @@
 import Image from "next/image";
+import TopNav from "./components/TopNav";
 
 export default function Home() {
   return (
     <div
       className="min-h-screen flex flex-col bg-cover bg-center bg-fixed"
       style={{ backgroundImage: "url('/background.jpeg')" }}
-    >
+    >          <TopNav />
+
       <main className="backdrop-blur-sm bg-white/80 dark:bg-black/60 p-4 max-w-3xl mx-auto space-y-6 rounded-xl shadow-lg mt-10 mb-6 text-left items-start text-start">
         <div className="flex items-center gap-6">
           <Image

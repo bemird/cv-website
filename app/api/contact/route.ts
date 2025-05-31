@@ -1,4 +1,4 @@
-import { NextRequest } from "next/server";
+import type { NextRequest } from "next/server";
 
 export async function POST(req: NextRequest) {
   try {
@@ -7,20 +7,22 @@ export async function POST(req: NextRequest) {
     const response = await fetch("http://backend:8000/contact", {
       method: "POST",
       headers: {
-        "Content-Type": "application/x-www-form-urlencoded",
+        "Content-Type": "application/json",
       },
-      body: new URLSearchParams({ name, email, message }),
+      body: JSON.stringify({ name, email, message }),
     });
 
     const data = await response.json();
+
     return new Response(JSON.stringify(data), {
       status: response.status,
       headers: { "Content-Type": "application/json" },
     });
   } catch (err) {
     console.error("Contact API error:", err);
-    return new Response(JSON.stringify({ success: false, message: "Failed to send message." }), {
-      status: 500,
-    });
+    return new Response(
+      JSON.stringify({ success: false, message: "Failed to send message." }),
+      { status: 500 }
+    );
   }
 }

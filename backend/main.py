@@ -1,9 +1,11 @@
 import os
-from fastapi import FastAPI, Form
+from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from pydantic import BaseModel
 import smtplib
 from email.message import EmailMessage
 from dotenv import load_dotenv
+
 load_dotenv(".env")
 
 app = FastAPI()
@@ -16,19 +18,23 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-@app.post("/contact")
-def contact(name: str = Form(...), email: str = Form(...), message: str = Form(...)):
-    print(f"New message from {name} ({email}): {message}")
+# Define the request schema
+class ContactForm(BaseModel):
+    name: str
+    email: str
+    message: str
 
-    # Create email
+@app.post("/contact")
+async def contact(form: ContactForm):
+    print(f"📩 New message from {form.name} ({form.email}): {form.message}")
+
     email_msg = EmailMessage()
     email_msg["Subject"] = "New Contact Form Message"
     email_msg["From"] = os.environ["SMTP_USER"]
     email_msg["To"] = "boran.demir@hotmail.com"
-    email_msg.set_content(f"Name: {name}\nEmail: {email}\n\n{message}")
+    email_msg.set_content(f"Name: {form.name}\nEmail: {form.email}\n\n{form.message}")
 
     try:
-        # Connect and send
         with smtplib.SMTP("smtp.gmail.com", 587) as server:
             server.starttls()
             server.login(os.environ["SMTP_USER"], os.environ["SMTP_PASS"])
@@ -36,5 +42,9 @@ def contact(name: str = Form(...), email: str = Form(...), message: str = Form(.
             print("✅ Email sent!")
         return {"success": True, "message": "Message sent successfully!"}
     except Exception as e:
-        print("Email sending failed:", e)
+        print("❌ Email sending failed:", e)
         return {"success": False, "message": "Failed to send message."}
+
+@app.get("/")
+def read_root():
+    return {"status": "ok"}
