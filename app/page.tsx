@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import TopNav from "../components/TopNav";
+import TopNav from "./components/TopNav";
 
 const books = [
   {
