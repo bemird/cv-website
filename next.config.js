@@ -1,16 +1,3 @@
-<<<<<<< Updated upstream
-  /** @type {import('next').NextConfig} */
-  const nextConfig = {
-    async rewrites() {
-      return [
-        {
-          source: '/api/:path*',
-          destination: 'http://backend:8000/:path*', // internal Docker hostname
-        },
-      ];
-    },
-  };
-=======
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   experimental: {},
@@ -18,13 +5,10 @@ const nextConfig = {
     return [
       {
         source: '/api/:path*',
-        destination: 'http://backend:8000/:path*',
+        destination: 'http://backend:8000/:path*', // internal Docker hostname
       },
     ];
   },
 };
 
 module.exports = nextConfig;
->>>>>>> Stashed changes
-
-  module.exports = nextConfig;
