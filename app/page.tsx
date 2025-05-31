@@ -1,94 +1,102 @@
+"use client";
+
+import { useState } from "react";
 import Image from "next/image";
-import TopNav from "./components/TopNav";
+import TopNav from "../components/TopNav";
 
-export default function Home() {
+const books = [
+  {
+    title: "Shoe Dog",
+    image: "/books/shoe-dog.jpg",
+    review: "A powerful memoir of risk, hustle, and vision...",
+  },
+  {
+    title: "The Everything Store",
+    image: "/books/everything-store.jpg",
+    review: "Brad Stone's portrait of Jeff Bezos...",
+  },
+  {
+    title: "Make Something Wonderful",
+    image: "/books/make-something-wonderful.jpg",
+    review: "A poetic and visual collection of Steve Jobs’ thoughts...",
+  },
+  {
+    title: "Napoleon",
+    image: "/books/napoleon.jpg",
+    review: "Andrew Roberts’s sweeping biography of Napoleon Bonaparte...",
+  },
+  {
+    title: "Superagency",
+    image: "/books/superagency.jpg",
+    review: "Reid Hoffman’s roadmap to an AI-empowered future...",
+  },
+];
+
+export default function BookReviewsPage() {
+  const [selectedBook, setSelectedBook] = useState<null | typeof books[0]>(null);
+
   return (
-    <div
-      className="min-h-screen flex flex-col bg-cover bg-center bg-fixed"
-      style={{ backgroundImage: "url('/background.jpeg')" }}
-    >          <TopNav />
+    <main className="min-h-screen bg-cover bg-center text-white" style={{ backgroundImage: "url('/bookreview.jpeg')" }}>
+        <TopNav />
+      {/* Navigation Bar */}
 
-      <main className="backdrop-blur-sm bg-white/80 dark:bg-black/60 p-4 max-w-3xl mx-auto space-y-6 rounded-xl shadow-lg mt-10 mb-6 text-left items-start text-start">
-        <div className="flex items-center gap-6">
-          <Image
-            src="/boran.jpg"
-            alt="Boran Demir"
-            width={120}
-            height={120}
-            className="rounded-full border"
-          />
-          <div>
-            <h1 className="text-4xl font-bold">Boran Demir</h1>
-            <p className="text-lg">IT Professional | Systems Engineer | DevOps Enthusiast</p>
+      {/* Main Layout */}
+      <div className="flex flex-col md:flex-row w-full max-w-7xl mx-auto bg-black/70 mt-6 rounded-xl overflow-hidden">
+
+        {/* Sidebar */}
+        <aside className="w-full md:w-1/4 p-6 text-center border-b md:border-b-0 md:border-r border-white/20">
+          <Image src="/boran2.jpg" alt="Boran Demir" width={120} height={120} className="mx-auto rounded-full mb-4" />
+          <h2 className="text-xl font-semibold">Boran Demir</h2>
+          <p className="text-sm text-gray-300 mt-2">
+            IT Professional with experience in DevOps, Linux, and Python. Passionate about technology, books, and learning.
+          </p>
+        </aside>
+
+        {/* Book Reviews */}
+        <section className="w-full md:w-3/4 p-6">
+          <h2 className="text-2xl font-bold mb-4 text-center">📚 Book Reviews</h2>
+
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 gap-4 justify-items-center">
+            {books.map((book, i) => (
+              <div
+                key={i}
+                onClick={() => setSelectedBook(book)}
+                className="cursor-pointer hover:scale-105 transition-transform"
+              >
+                <Image
+                  src={book.image}
+                  alt={book.title}
+                  width={150}
+                  height={220}
+                  className="rounded-lg shadow"
+                />
+              </div>
+            ))}
+          </div>
+        </section>
+      </div>
+
+      {/* Modal */}
+      {selectedBook && (
+        <div
+          className="fixed inset-0 bg-black/60 flex items-center justify-center z-50"
+          onClick={() => setSelectedBook(null)}
+        >
+          <div
+            onClick={(e) => e.stopPropagation()}
+            className="bg-white dark:bg-gray-800 rounded-xl p-6 max-w-md w-full shadow-lg"
+          >
+            <h2 className="text-2xl font-semibold mb-4">{selectedBook.title}</h2>
+            <p className="text-sm text-gray-700 dark:text-gray-300">{selectedBook.review}</p>
+            <button
+              onClick={() => setSelectedBook(null)}
+              className="mt-6 text-blue-600 hover:underline"
+            >
+              ← Close
+            </button>
           </div>
         </div>
-
-        <section>
-          <h2 className="text-2xl font-semibold">Contact</h2>
-          <p>📍 Ankara, Turkiye</p>
-          <p>📧 boran.demir@hotmail.com</p>
-          <p>📞 +90 543 815 4377</p>
-          <p>🔗 <a href="https://www.linkedin.com/in/boran-demir" className="text-blue-600">LinkedIn</a></p>
-          <p>🔗 <a href="https://github.com/bemird" className="text-blue-600">GitHub</a></p>
-        </section>
-
-        <section>
-          <h2 className="text-2xl font-semibold">About Me</h2>
-          <p>
-            With over 5 years of experience in diverse multinational, multicultural, and multilingual environments,
-            I specialize in Red Hat system administration, virtualization (VMware/KVM), and IP networking. Formerly at Nokia,
-            I supported enterprise infrastructure and have experience in Docker, Kubernetes, and DevOps tools.
-          </p>
-        </section>
-
-        <section>
-          <h2 className="text-2xl font-semibold">Experience</h2>
-          <p className="font-semibold">Nokia — Systems Engineer (2020–2024)</p>
-          <ul className="list-disc list-inside ml-4">
-            <li>Managed Red Hat systems for EMEA clients</li>
-            <li>Administered VMware and KVM virtualization</li>
-            <li>Monitored servers with Nagios</li>
-            <li>Gained skills in Docker & Kubernetes</li>
-            <li>Applied solid networking knowledge including IP addressing, routing, and subnetting</li>
-            <li>Held NATO security clearance</li>
-            <li>Health and Safety training</li>
-          </ul>
-          <p className="font-semibold mt-2">METU KOVAN Lab — Research Intern (2019)</p>
-          <ul className="list-disc list-inside ml-4">
-            <li>Worked on swarm drone project shortest distance path planning using ROS</li>
-          </ul>
-        </section>
-
-        <section>
-          <h2 className="text-2xl font-semibold">Education</h2>
-          <ul className="list-disc list-inside ml-4">
-            <li>MSc in Software Engineering — Middle East Technical University, Turkiye (GPA: 3.5/4)</li>
-            <li>HDip in Computing — TUS Athlone, Ireland (1.1-First Class Honours Distinction)</li>
-            <li>Bachelor of Engineering in Civil Engineering — TUS Athlone, Ireland</li>
-          </ul>
-        </section>
-
-        <section>
-          <h2 className="text-2xl font-semibold">Certifications</h2>
-          <ul className="list-disc list-inside ml-4">
-            <li>Nokia Network Routing Specialist I (NRS I)</li>
-            <li>Nokia IP Networks and Services Fundamentals (4A0-100)</li>
-            <li>Nokia OSPF Routing Protocol Exam (4A0-113)</li>
-          </ul>
-        </section>
-
-        <section>
-          <h2 className="text-2xl font-semibold">Skills</h2>
-          <ul className="list-disc list-inside ml-4">
-            <li>Linux, Red Hat, Networking (Routing, Switching, Subnetting)</li>
-            <li>VMware, KVM, Nagios</li>
-            <li>Python, SQL, OracleDB, Docker, Kubernetes</li>
-            <li> Amazon Web Services (AWS)</li>
-
-          </ul>
-        </section>
-
-      </main>
-    </div>
+      )}
+    </main>
   );
 }
