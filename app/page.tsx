@@ -30,6 +30,26 @@ const books = [
     image: "/books/superagency.jpg",
     review: "Reid Hoffman’s roadmap to an AI-empowered future...",
   },
+  {
+    title: "The Medici: Power, Money, and Art in Renaissance Italy",
+    image: "/books/Medici.jpg",
+    review: "Tim Parks explores the Medici family's role in banking, politics, and the flourishing of the Renaissance.",
+  },
+  {
+    title: "Meditations",
+    image: "/books/Meditations.jpg",
+    review: "Timeless stoic wisdom from Marcus Aurelius on discipline, duty, and human nature.",
+  },
+  {
+    title: "The House of Rothschild",
+    image: "/books/Rothschild.jpg",
+    review: "Niall Ferguson’s deep dive into the powerful banking dynasty that shaped Europe.",
+  },
+  {
+    title: "The Habsburgs",
+    image: "/books/Habsburgs.jpg",
+    review: "Martyn Rady traces the rise and legacy of one of Europe’s most influential dynasties.",
+  },
 ];
 
 export default function BookReviewsPage() {
@@ -37,7 +57,7 @@ export default function BookReviewsPage() {
 
   return (
     <main className="min-h-screen bg-cover bg-center text-white" style={{ backgroundImage: "url('/bookreview.jpeg')" }}>
-        <TopNav />
+      <TopNav />
       {/* Navigation Bar */}
 
       {/* Main Layout */}
