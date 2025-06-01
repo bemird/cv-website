@@ -50,6 +50,21 @@ const books = [
     image: "/books/Habsburgs.jpg",
     review: "Martyn Rady traces the rise and legacy of one of Europe’s most influential dynasties.",
   },
+  {
+    title: "Alexander the Great",
+    image: "/books/Alexander.jpg",
+    review: "John Boardman's concise account of one of the most brilliant military leaders in history.",
+  },
+  {
+    title: "Misbehaving: The Making of Behavioral Economics",
+    image: "/books/Misbehaving.jpg",
+    review: "Richard Thaler explains how psychology shaped the field of economics through real-world behavior.",
+  },
+  {
+    title: "Hannibal",
+    image: "/books/Hannibal.jpg",
+    review: "Patrick Hunt tells the story of Hannibal’s legendary campaign against Rome across the Alps.",
+  },
 ];
 
 export default function BookReviewsPage() {
