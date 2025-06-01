@@ -6,7 +6,8 @@ export default function Home() {
     <div
       className="min-h-screen flex flex-col bg-cover bg-center bg-fixed"
       style={{ backgroundImage: "url('/background.jpeg')" }}
-    >          <TopNav />
+    >
+      <TopNav />
 
       <main className="backdrop-blur-sm bg-white/80 dark:bg-black/60 p-4 max-w-3xl mx-auto space-y-6 rounded-xl shadow-lg mt-10 mb-6 text-left items-start text-start">
         <div className="flex items-center gap-6">
@@ -60,6 +61,23 @@ export default function Home() {
         </section>
 
         <section>
+          <h2 className="text-2xl font-semibold">Projects</h2>
+          <ul className="list-disc list-inside ml-4 space-y-2">
+            <li>
+              <strong>DevOps CV Website Project:</strong>  
+              Built a personal CV site using Next.js, FastAPI, and Tailwind CSS, containerized with Docker, deployed on AWS EC2.  
+              Implemented CI/CD via GitHub Actions with SSH deploy, and explored Kubernetes (Minikube, K9s, Dashboard) for orchestration and monitoring.  
+              🔗 <a href="https://borandemir.com" className="text-blue-600">borandemir.com</a>
+            </li>
+            <li>
+              <strong>Cloud-Native Meeting Notes App on AWS:</strong>  
+              As my graduation project, I developed a serverless meeting notes application using AWS Lambda and RDS.  
+              It minimized costs and increased security by eliminating the need for physical servers.
+            </li>
+          </ul>
+        </section>
+
+        <section>
           <h2 className="text-2xl font-semibold">Education</h2>
           <ul className="list-disc list-inside ml-4">
             <li>MSc in Software Engineering — Middle East Technical University, Turkiye (GPA: 3.5/4)</li>
@@ -83,11 +101,9 @@ export default function Home() {
             <li>Linux, Red Hat, Networking (Routing, Switching, Subnetting)</li>
             <li>VMware, KVM, Nagios</li>
             <li>Python, SQL, OracleDB, Docker, Kubernetes</li>
-            <li> Amazon Web Services (AWS)</li>
-
+            <li>Amazon Web Services (AWS)</li>
           </ul>
         </section>
-
       </main>
     </div>
   );
