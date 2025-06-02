@@ -69,11 +69,6 @@ export default function Home() {
               Implemented CI/CD via GitHub Actions with SSH deploy, and explored Kubernetes (Minikube, K9s, Dashboard) for orchestration and monitoring.  
               🔗 <a href="https://borandemir.com" className="text-blue-600">borandemir.com</a>
             </li>
-            <li>
-              <strong>Cloud-Native Meeting Notes App on AWS:</strong>  
-              As my graduation project, I developed a serverless meeting notes application using AWS Lambda and RDS.  
-              It minimized costs and increased security by eliminating the need for physical servers.
-            </li>
           </ul>
         </section>
 
