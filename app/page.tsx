@@ -79,7 +79,7 @@ const books = [
     title: "The Audacity of Hope",
     image: "/books/obama.jpg",
     review: "Barack Obama's reflections on American politics, identity, and the values that can unite a divided nation.",
-  }
+  },
 ];
 
 export default function BookReviewsPage() {
@@ -88,24 +88,31 @@ export default function BookReviewsPage() {
   return (
     <main className="min-h-screen bg-cover bg-center text-white" style={{ backgroundImage: "url('/bookreview.jpeg')" }}>
       <TopNav />
-      {/* Navigation Bar */}
 
-      {/* Main Layout */}
-      <div className="flex flex-col md:flex-row w-full max-w-7xl mx-auto bg-black/70 mt-6 rounded-xl overflow-hidden">
+      <div className="grid grid-cols-1 md:grid-cols-[1fr_3fr] w-full max-w-screen-xl mx-auto md:min-h-screen">
 
         {/* Sidebar */}
-        <aside className="w-full md:w-1/4 p-6 text-center border-b md:border-b-0 md:border-r border-white/20">
-          <Image src="/boran2.jpg" alt="Boran Demir" width={120} height={120} className="mx-auto rounded-full mb-4" />
-          <h2 className="text-xl font-semibold">Boran Demir</h2>
-          <p className="text-sm text-gray-300 mt-2">
-            IT Professional with experience in DevOps, Linux, and Python. Passionate about technology, books, and learning.
-          </p>
+        <aside className="p-6 text-center border-b md:border-b-0 md:sticky md:top-0 self-start h-full">
+
+          <Image
+            src="/boran2.jpg"
+            alt="Boran Demir"
+            width={120}
+            height={120}
+            className="mx-auto rounded-full mb-4"
+          />
+          <div className="bg-black/40 backdrop-blur-sm p-4 rounded-xl inline-block">
+            <h2 className="text-xl font-semibold">Boran Demir</h2>
+            <p className="text-sm text-gray-300 mt-2">
+              IT Professional with experience in DevOps, Linux, and Python.
+              Passionate about technology, books, and learning.
+            </p>
+          </div>
         </aside>
 
-        {/* Book Reviews */}
-        <section className="w-full md:w-3/4 p-6">
+        {/* Book Reviews Section */}
+        <section className="backdrop-blur-sm bg-white/80 dark:bg-black/60 p-6 rounded-xl shadow-lg mt-6">
           <h2 className="text-2xl font-bold mb-4 text-center">📚 Book Reviews</h2>
-
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 gap-4 justify-items-center">
             {books.map((book, i) => (
               <div
