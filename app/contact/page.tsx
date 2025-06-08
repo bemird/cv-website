@@ -92,7 +92,7 @@ export default function ContactPage() {
                 href="/"
                 className="inline-block mt-4 text-blue-600 underline hover:text-blue-800"
               >
-                ← Back to CV
+                ← Back to Home Page
               </Link>
             </div>
           )}

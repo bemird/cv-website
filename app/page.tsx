@@ -65,6 +65,21 @@ const books = [
     image: "/books/Hannibal.jpg",
     review: "Patrick Hunt tells the story of Hannibal’s legendary campaign against Rome across the Alps.",
   },
+  {
+    title: "Good to Great",
+    image: "/books/goodtogreat.jpg",
+    review: "Jim Collins explores why some companies leap ahead and others don't, focusing on leadership, discipline, and strategy.",
+  },
+  {
+    title: "Atomic Habits",
+    image: "/books/atomic.jpg",
+    review: "James Clear shares a practical framework for building better habits and breaking bad ones through small, consistent changes.",
+  },
+  {
+    title: "The Audacity of Hope",
+    image: "/books/obama.jpg",
+    review: "Barack Obama's reflections on American politics, identity, and the values that can unite a divided nation.",
+  }
 ];
 
 export default function BookReviewsPage() {
