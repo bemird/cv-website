@@ -16,6 +16,9 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Boran Demir — Personal Website",
   description: "Welcome to Boran Demir's personal website. Discover book reviews, tech projects, and more",
+  icons: {
+    icon: "/favicon.ico",
+  },
 };
 
 export default function RootLayout({
