@@ -80,6 +80,11 @@ const books = [
     image: "/books/obama.jpg",
     review: "Barack Obama's reflections on American politics, identity, and the values that can unite a divided nation.",
   },
+  {
+    title: "Scrum: The Art of Doing Twice the Work in Half the Time",
+    image: "/books/scrum.jpg",
+    review: "Jeff Sutherland introduces Scrum, a revolutionary project management method that boosts productivity, teamwork, and adaptability in complex work environments.",
+  }
 ];
 
 export default function BookReviewsPage() {
